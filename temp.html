@@ -53,5 +53,28 @@
         <td>1</td>
       </tr>
     </table>
+    <!--post将表单信息放在请求中而get则将表单信息放在链接中
+      name属性用指示表单信息 id则是用来操作表单信息
+    -->
+    <form class="" action="网站首页信息.html" method="get">
+      <input type="hidden" name="uid" value="111111">
+        用户名：<input type="text" name="username" placeholder="请输入用户名"   value=""><br/>
+        密码：<input type="password" name="psd" placeholder="请输入密码" value=""><br/>
+        号码：<input type="number" name="psd" value=""><br/>
+        性别：<input type="radio" name="sex" value="男">男
+             <input type="radio" name="sex" value="女">女<br/>
+        爱好：<input type="checkbox" name="hobby" value="1">1
+             <input type="checkbox" name="hobby" value="2">2
+             <input type="checkbox" name="hobby" value="3">3<br/>
+        日期：<input type="datetime-local" name="" value=""><br>
+        照片：<input type="file" name="" value="">
+        籍贯：<select name="city" value="">
+              <option value="上海">上海</option>
+              <option value="南京">南京</option>
+      </select><br/>
+        描述：<textarea cols="40" rows="40"></textarea><br>
+        <input type="reset" name="" ><br>
+        <input type="submit" name="" >
+    </form>
   </body>
 </html>
