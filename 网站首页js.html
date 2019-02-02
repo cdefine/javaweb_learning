@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script>
+
+
+	</script>
+	<style>
+		.header{
+			float: left;
+			width: 33%;
+			height: 60px;
+			line-height: 50px;
+			border: 1px solid white;
+
+
+		}
+		.logo{
+			text-decoration: none;
+			color: black;
+		}
+		.menu{
+			text-decoration: none;
+			color: white;
+			line-height: 50px;
+
+		}
+		.logo1{
+			font-size: 20px;
+			font-weight: bold;
+			color: black;
+			text-decoration: none;
+		}
+		.small{
+			float: left;
+			border:1px solid white;
+			height: 240px;
+			width: 14%;
+			text-align: center;
+		}
+		#foot{
+			text-align: center;
+
+		}
+	</style>
+	<script>
+		var index = 0;
+		function init(){
+			setInterval("changeImg()","2000");
+			setTimeout("ShowAd()","2000");
+
+		}
+		function changeImg(){
+			var img = document.getElementById('img1');
+			var name = index%3+1;
+			index++;
+			img.src = "./img/"+name+".jpg";
+		}
+		function ShowAd(){
+			var img = document.getElementById('ad');
+			ad.style.display="block";
+			setTimeout("hideAd()","3000");
+		}
+		function hideAd(){
+			var img = document.getElementById('ad');
+			ad.style.display="none";
+		}
+	</script>
+</head>
+<body onload="init()">
+	<div>
+	<img id="ad" src="./img/ad.jpg" style="height:100%; display:none;">
+	<div class="header"><img src="./img/logo2.png"></div>
+	<div class="header"><img src="./img/header.jpg" ></div>
+	<div class="header" align="center">
+		<a href="#" class="logo">登录</a>
+		<a href="#" class="logo">注册</a>
+		<a href="#" class="logo">购物车</a>
+	</div >
+	</div>
+	<div style="clear: both;"></div>
+	<div style="background-color: black; height: 50px; border: 1px solid white;" >
+		<a href="#" class="menu">首页</a>
+		<a href="#" class="menu">手机数码</a>
+		<a href="#" class="menu">鞋靴箱包</a>
+		<a href="#" class="menu">电脑办公</a>
+		<a href="#" class="menu">香烟酒水</a>
+	</div>
+	<div ><img id="img1" src="./img/1.jpg" width="100%"></div>
+	<div >
+		<a href="#" class="logo1">最新商品</a>
+		<img src="./img/title2.jpg" alt="">
+	</div>
+	<div>
+		<div style="width:14%;height:480px;float:left;border:1px solid white;"><img src="./products/hao/big01.jpg" width="100%"height="480px" alt="fail"></div>
+		<div style="width:42%;height:240px;float:left;border:1px solid white;"><img src="./products/hao/middle01.jpg" alt="fail" width="100%"height="240px"></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+	</div>
+	<div><img src="./products/hao/ad.jpg" width="100%"></div>
+	<div >
+		<a href="#" class="logo1">热门商品</a>
+		<img src="./img/title2.jpg" alt="">
+	</div>
+	<div>
+		<div style="width:14%;height:480px;float:left;border:1px solid white;"><img src="./products/hao/big01.jpg" width="100%"height="480px" alt="fail"></div>
+		<div style="width:42%;height:240px;float:left;border:1px solid white;"><img src="./products/hao/middle01.jpg" alt="fail" width="100%"height="240px"></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+		<div class="small"><img src="./products/hao/small01.jpg" ><p>榨汁机</p><p>$998</p></div>
+	</div>
+	<div><img src="./img/footer.jpg" alt=""></div>
+	<div id="foot">
+		<a href="#" style="text-decoration:none">关于我们</a>
+		<a href="#" style="text-decoration:none">关于我们</a>
+		<a href="#" style="text-decoration:none">联系我们</a>
+		<a href="#" style="text-decoration:none">招贤纳士</a>
+		<a href="#" style="text-decoration:none">法律声明</a>
+		<a href="#" style="text-decoration:none">友情链接</a>
+		<a href="#" style="text-decoration:none">支付方式</a>
+		<a href="#" style="text-decoration:none">配送方式</a>
+		<a href="#" style="text-decoration:none">服务声明</a>
+		<a href="#" style="text-decoration:none">广告声明</a>
+	  </p>
+	  <p>Copyright © 2005-2016 传智商城 版权所有</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script type="text/javascript" src="./js/regutils.js">
+	</script>
+	<script>
+		function showTips(spanId,msg){
+			var span = document.getElementById(spanId);
+			span.innerHTML="<font color='red'>"+msg+"</font>";
+
+		}
+		function checkUsername(){
+			var span = document.getElementById('user_tip');
+			var name = document.getElementById('userName').value;
+			if(name.length<6){
+				span.innerHTML = "<font color='red'>用户名不可用！</font>";
+				return false;
+			}else{
+				span.innerHTML = "<font color='red'>用户名可用！</font>";
+				return true;
+			}
+
+		}
+		function checkPasswd(){
+			var span = document.getElementById('pass_tip');
+			var name = document.getElementById('passwd').value;
+			if(name.length<6){
+				span.innerHTML = "<font color='red'>密码不可用！</font>";
+				return false;
+			}else{
+				span.innerHTML = "<font color='red'>密码可用！</font>";
+				return true;
+			}
+		}
+		function checkRpass(){
+			var span = document.getElementById('rpass_tip');
+			var pass = document.getElementById('passwd').value;
+			var rpass = document.getElementById('repass').value;
+			if(pass === rpass){
+				span.innerHTML = "<font color='red'>密码一致!</font>";
+				return true;
+			}else{
+				span.innerHTML = "<font color='red'>密码不一致!</font>";
+				return false;
+			}
+		}
+		function checkMail(){
+			var span = document.getElementById('span_email');
+			var v = document.getElementById('email').value;
+			flag = checkEmail(v);
+			if(flag){
+				span.innerHTML = "<font color='red'>邮箱可用！</font>";
+				return true;
+			}else{
+				span.innerHTML = "<font color='red'>邮箱不可用！</font>";
+				return false;
+			}
+		}
+		function checkForm(){
+			if(checkMail()&&checkUsername()&&checkPasswd()&&checkRpass()){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		function changeColor(){
+
+			var tab = document.getElementById("tab");
+			rows = tab.rows;
+			for(var i=0;i<rows.length;i++){
+				if(i%2 == 0){
+					rows[i].setAttribute("bgcolor","pink");
+				}else{
+					rows[i].setAttribute("bgcolor","blue");
+				}
+				//alert(rows[i].color);
+
+			}
+		}
+		// function changeCity(){
+		// 	var pro = document.getElementById("pro").value;
+		// 	var city = [['南京市','苏州市','徐州市'],['郑州市','信阳市','安阳市']];
+		// 	var s = document.getElementById("city");
+		// 	//alert(pro);
+		// 	s.options.length = 0;//清空select
+		// 	for(var i=0; i<city[pro].length;i++){
+		// 		var node = document.createElement("option");
+		// 		node.text = city[pro][i];
+		// 		//规范的写法是创建三个dom对象并连接
+		// 		s.appendChild(node);
+		// 	}
+		// }
+		function changeCity(){
+			var pro = document.getElementById("pro");
+			var c = document.getElementById("city");
+			var value = pro.value;
+			var city = [['南京市','苏州市','徐州市'],['郑州市','信阳市','安阳市']];
+			var citys = city[value];
+			c.options.length=0;
+			for(var i=0; i<citys.length;i++){
+				var cityText = citys[i]
+				var opt = document.createElement("option");
+				var textNode = document.createTextNode(cityText);
+				opt.appendChild(textNode);
+				c.appendChild(opt);
+			}
+
+		}
+	</script>
+	<style>
+		.logo{
+			float: left;
+			align: center;
+			height: 60px;
+			width: 33%;
+			line-height: 60px;
+
+		}
+		.menu{
+			color: white;
+			text-decoration: none;
+		}
+		.a{
+			text-align:right;
+		}
+		.b{
+			text-align:left;
+		}
+	</style>
+</head>
+<body onload="changeColor()">
+	<div>
+		<div>
+			<div class="logo"><img src="./img/logo2.png" alt=""></div>
+			<div class="logo"><img src="./img/header.jpg" alt=""></div>
+			<div class="logo" style="text-align:right;">
+				<a href="#" style="text-decoration:none">登录</a>
+				<a href="#" style="text-decoration:none">注册</a>
+				<a href="#" style="text-decoration:none">购物车</a>
+			</div>
+		</div>
+		<div style="clear:both;"></div>
+		<div style="background-color:black;height:50px;line-height: 50px;">
+			<a href="#" class="menu">首页</a>
+			<a href="#" class="menu">手机数码</a>
+			<a href="#" class="menu">鞋靴箱包</a>
+			<a href="#" class="menu">电脑办公</a>
+			<a href="#" class="menu">香烟酒水</a>
+		</div>
+		<div style="border:0px solid red;height:500px;width:100%;background:url(./img/regist_bg.jpg)">
+			<div style="border:3px solid grey;height:400px;width:60%;background-color:white;position:relative;top:50px;left:250px;">
+				<form action="./网站首页js.html" onsubmit="return checkForm()">
+				<table  height="400px" width="60%" align="center" id="tab">
+					<tr >
+						<td colspan="2" align="center"><font size="5" color="blue">用户注册</font>USER REGISTER</td>
+					</tr>
+					<tr >
+						<td class="a">用户名：</td>
+						<td class="b"><input type="text" id="userName" onfocus="showTips('user_tip','用户名长度需要大于6位')" onblur="checkUsername()" onkeyup="checkUsername()"><span id="user_tip"></span></td>
+					</tr>
+					<tr>
+						<td class="a">密码：</td>
+						<td class="b"><input type="password" id="passwd" onfocus=showTips('pass_tip','密码长度需要大于6位') onblur="checkPasswd()" onkeyup="checkPasswd()"><span id="pass_tip"></span></td>
+					</tr>
+					<tr>
+						<td class="a">确认密码：</td>
+						<td class="b"><input type="password" id="repass" onfocus=showTips('rpass_tip','两次密码输入需要一致') onblur="checkRpass()" onkeyup="checkRpass()"><span id="rpass_tip"></span></td>
+					</tr>
+					<tr>
+						<td class="a">E-mail：</td>
+						<td class="b"><input type="text" id="email" onblur="checkMail()" onfocus="showTips('span_email','邮箱格式必须正确')"><span id="span_email"></span></td>
+					</tr>
+					<tr>
+						<td class="a">籍贯：</td>
+						<td class="b">
+							<select  name="province" id="pro" onchange="changeCity()">
+								<option value="-1">--请选择--</option>
+								<option value="0">江苏省</option>
+								<option value="1">河南省</option>
+							</select>
+							<select name="city" id="city" >
+
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="a">性别：</td>
+						<td class="b">
+							<input type="radio" name="sex";>男
+							<input type="radio" name="sex";>女
+
+						</td>
+					</tr>
+					<tr>
+						<td class="a">出生日期：</td>
+						<td class="b"><input type="date"></td>
+					</tr>
+					<tr>
+						<td class="a">验证码：</td>
+						<td class="b"><input type="text"></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center";><input type="submit"></td>
+
+					</tr>
+				</table>
+			</div>
+			</form>
+		</div>
+
+		<div style="width: 100%;"><img src="./img/footer.jpg"></div>
+
+		<div style="text-align:center;">
+			<p>
+			  <a href="#" style="text-decoration:none">关于我们</a>
+			  <a href="#" style="text-decoration:none">关于我们</a>
+			  <a href="#" style="text-decoration:none">联系我们</a>
+			  <a href="#" style="text-decoration:none">招贤纳士</a>
+			  <a href="#" style="text-decoration:none">法律声明</a>
+			  <a href="#" style="text-decoration:none">友情链接</a>
+			  <a href="#" style="text-decoration:none">支付方式</a>
+			  <a href="#" style="text-decoration:none">配送方式</a>
+			  <a href="#" style="text-decoration:none">服务声明</a>
+			  <a href="#" style="text-decoration:none">广告声明</a>
+			</p>
+			<p>Copyright © 2005-2016 传智商城 版权所有</p>
+		</div>
+	</div>
+</body>
+</html>
